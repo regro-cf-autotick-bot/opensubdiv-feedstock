@@ -1,5 +1,5 @@
 {% set name = "libopensubdiv" %}
-{% set version = "3_7_0" %}
+{% set version = "3_8_0" %}
 {% set version_conda = version.replace('_', ".") %}
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   - url: https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v{{ version }}.tar.gz
-    sha256: f843eb49daf20264007d807cbc64516a1fed9cdb1149aaf84ff47691d97491f9
+    sha256: e5eab30a97c7cce6b5a9905ae488981759c3d86cbce01d58a6c75e1fd9857a2b
     patches:
       - disable_install_of_static_libraries.patch
       - enable_shared_library_on_windows.patch
 
 build:
-  number: 1
+  number: 0
   # SONAME is x.x.x
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
